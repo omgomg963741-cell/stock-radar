@@ -212,6 +212,127 @@ header{
 .cycle-dot{width:6px;height:6px;border-radius:50%;}
 .sector-summary{font-size:17px;color:var(--muted2);line-height:1.6;margin-top:8px;}
  
+/* ── search ── */
+#page-search{display:none;}
+.search-wrap{position:relative;margin-bottom:16px;}
+.search-input{
+  width:100%;background:var(--surface);border:1px solid var(--border2);
+  border-radius:10px;padding:14px 44px 14px 16px;
+  font-size:16px;color:var(--text);font-family:var(--sans);
+  outline:none;transition:border-color .2s;
+}
+.search-input:focus{border-color:var(--accent);}
+.search-input::placeholder{color:var(--muted);}
+.search-clear{
+  position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:var(--muted);cursor:pointer;
+  font-size:18px;display:none;
+}
+.search-filters{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.sf-btn{
+  font-family:var(--mono);font-size:12px;padding:6px 14px;
+  border:1px solid var(--border2);background:none;color:var(--muted2);
+  cursor:pointer;border-radius:20px;transition:all .2s;
+}
+.sf-btn.sf-active{background:var(--accent);border-color:var(--accent);color:#000;font-weight:700;}
+.search-results{display:flex;flex-direction:column;gap:10px;}
+.search-empty{text-align:center;padding:48px 20px;color:var(--muted);}
+.search-empty-icon{font-size:32px;margin-bottom:10px;opacity:.4;}
+.search-empty p{font-size:14px;line-height:1.7;}
+.search-count{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:12px;}
+.analyze-btn{
+  width:100%;padding:14px;border-radius:10px;border:none;
+  background:var(--accent);color:#000;font-size:16px;font-weight:700;
+  font-family:var(--sans);cursor:pointer;margin-bottom:18px;
+  transition:opacity .2s;
+}
+.analyze-btn:active{opacity:.8;}
+.analyze-btn:disabled{background:var(--surface2);color:var(--muted);cursor:not-allowed;}
+.ai-result-card{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:12px;padding:18px;margin-bottom:12px;
+}
+.ai-result-header{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  padding-bottom:14px;border-bottom:1px solid var(--border);margin-bottom:14px;
+}
+.ai-stock-info{}
+.ai-stock-name{font-size:20px;font-weight:700;margin-bottom:2px;}
+.ai-stock-code{font-family:var(--mono);font-size:12px;color:var(--muted);}
+.ai-price-wrap{text-align:right;}
+.ai-price{font-family:var(--mono);font-size:24px;font-weight:700;}
+.ai-chg{font-family:var(--mono);font-size:12px;padding:2px 8px;border-radius:4px;margin-top:3px;display:inline-block;}
+.ai-section{margin-bottom:14px;}
+.ai-section-title{
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+  letter-spacing:.12em;margin-bottom:8px;
+}
+.ai-analysis-text{
+  font-size:14px;line-height:1.75;color:var(--muted2);
+  white-space:pre-wrap;
+}
+.ai-score-row{
+  display:flex;align-items:center;gap:10px;
+  background:var(--surface2);border-radius:8px;padding:12px 14px;margin-bottom:14px;
+}
+.ai-score-label{font-size:13px;color:var(--muted2);}
+.ai-score-val{
+  font-family:var(--mono);font-size:26px;font-weight:700;
+  margin-left:auto;
+}
+.ai-quick-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+.ai-stat{background:var(--surface2);border-radius:6px;padding:8px 10px;}
+.ai-stat-label{font-size:11px;color:var(--muted);margin-bottom:3px;font-family:var(--mono);}
+.ai-stat-val{font-size:13px;font-weight:500;font-family:var(--mono);}
+.ai-stat-val.pos{color:var(--green);}
+.ai-stat-val.neg{color:var(--red);}
+.ai-signals{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px;}
+.ai-entry{
+  font-family:var(--mono);font-size:16px;color:var(--accent);
+  font-weight:700;background:var(--surface2);border-radius:6px;
+  padding:10px 14px;margin-bottom:14px;
+}
+.ai-risks{display:flex;flex-wrap:wrap;gap:6px;}
+.loading-spinner{
+  display:flex;flex-direction:column;align-items:center;
+  padding:48px 20px;gap:16px;
+}
+.spinner{
+  width:36px;height:36px;border:3px solid var(--border2);
+  border-top-color:var(--accent);border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner-text{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.1em;}
+.error-card{
+  background:rgba(255,77,109,.07);border:1px solid rgba(255,77,109,.2);
+  border-radius:10px;padding:16px;text-align:center;
+}
+.error-card p{font-size:13px;color:var(--red);line-height:1.7;}
+.s-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:10px;
+  padding:14px 16px;cursor:pointer;transition:border-color .2s;position:relative;overflow:hidden;
+}
+.s-card:active{background:var(--surface2);}
+.s-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.s-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.s-card-left{display:flex;align-items:center;gap:10px;}
+.s-market-tag{font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:3px;border:1px solid;flex-shrink:0;}
+.s-market-tag.tw{border-color:rgba(200,255,0,.3);color:var(--accent);background:rgba(200,255,0,.07);}
+.s-market-tag.us{border-color:rgba(0,229,255,.3);color:var(--accent2);background:rgba(0,229,255,.07);}
+.s-name{font-size:16px;font-weight:700;}
+.s-code{font-family:var(--mono);font-size:11px;color:var(--muted);}
+.s-sector{font-size:11px;color:var(--muted2);margin-top:2px;}
+.s-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+.s-stat{background:var(--surface2);border-radius:5px;padding:5px 8px;font-family:var(--mono);font-size:11px;}
+.s-stat span{color:var(--muted);margin-right:4px;}
+.s-price{font-family:var(--mono);font-size:18px;font-weight:700;}
+.s-chg{font-family:var(--mono);font-size:11px;padding:2px 6px;border-radius:3px;}
+.s-chg.up{background:rgba(0,229,160,.12);color:var(--green);}
+.s-chg.dn{background:rgba(255,77,109,.12);color:var(--red);}
+.s-score{font-family:var(--mono);font-size:12px;color:var(--muted2);}
+.highlight{color:var(--accent);font-weight:700;}
+ 
 /* ── history ── */
 #page-history{display:none;}
 .hist-controls{display:flex;gap:8px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
@@ -347,6 +468,35 @@ header{
     <div id="content" style="display:none"></div>
   </div>
  
+  <!-- page: search -->
+  <div id="page-search" style="display:none">
+    <div class="search-wrap">
+      <input class="search-input" id="search-input" type="search"
+        placeholder="輸入股票代號，例如 2330 或 AAPL"
+        oninput="onSearchInput(this.value)"
+        onkeydown="if(event.key==='Enter')doAnalyze()"
+        autocomplete="off" autocorrect="off" spellcheck="false">
+      <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
+    </div>
+    <div class="search-filters">
+      <button class="sf-btn sf-active" id="sf-tw" onclick="setSF('tw',this)">🇹🇼 台股</button>
+      <button class="sf-btn" id="sf-us" onclick="setSF('us',this)">🇺🇸 美股</button>
+    </div>
+    <button class="analyze-btn" id="analyze-btn" onclick="doAnalyze()">
+      <span id="analyze-btn-text">🔍 查詢並分析</span>
+    </button>
+    <div id="search-results" class="search-results">
+      <div class="search-empty">
+        <div class="search-empty-icon">📡</div>
+        <p>輸入股票代號<br>AI 即時抓取資料並分析</p>
+        <div style="margin-top:16px;font-size:12px;color:var(--muted);line-height:1.8;">
+          台股範例：<span style="color:var(--accent);font-family:var(--mono)">2330　2454　6669</span><br>
+          美股範例：<span style="color:var(--accent2);font-family:var(--mono)">NVDA　AAPL　TSLA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
   <!-- page: history -->
   <div id="page-history" style="display:none">
     <div class="hist-controls">
@@ -375,6 +525,9 @@ header{
   </button>
   <button class="nav-item" id="nav-history" onclick="switchPage('history',this)">
     <span class="nav-icon">📅</span>歷史紀錄
+  </button>
+  <button class="nav-item" id="nav-search" onclick="switchPage('search',this)">
+    <span class="nav-icon">🔍</span>搜尋
   </button>
 </nav>
  
@@ -874,6 +1027,327 @@ function renderHistory(){
  
 function clearHistory(){ if(confirm('確定清除所有歷史紀錄？')) { localStorage.removeItem(KEY); renderHistory(); } }
  
+ 
+/* ════════════════════════════════════
+   SEARCH
+════════════════════════════════════ */
+const WORKER_URL = 'https://stock-radar-api.a0977131388.workers.dev';
+let sfMarket = 'tw';
+let isAnalyzing = false;
+ 
+function setSF(market, btn){
+  sfMarket = market;
+  document.querySelectorAll('.sf-btn').forEach(b=>b.classList.remove('sf-active'));
+  btn.classList.add('sf-active');
+  // Update placeholder
+  const input = document.getElementById('search-input');
+  input.placeholder = market==='tw'
+    ? '輸入台股代號，例如 2330、2454'
+    : '輸入美股代號，例如 NVDA、AAPL';
+}
+ 
+function onSearchInput(v){
+  document.getElementById('search-clear').style.display = v ? 'block' : 'none';
+}
+ 
+function clearSearch(){
+  document.getElementById('search-input').value = '';
+  document.getElementById('search-clear').style.display = 'none';
+  document.getElementById('search-results').innerHTML = `
+    <div class="search-empty">
+      <div class="search-empty-icon">📡</div>
+      <p>輸入股票代號<br>AI 即時抓取資料並分析</p>
+      <div style="margin-top:16px;font-size:12px;color:var(--muted);line-height:1.8;">
+        台股範例：<span style="color:var(--accent);font-family:var(--mono)">2330　2454　6669</span><br>
+        美股範例：<span style="color:var(--accent2);font-family:var(--mono)">NVDA　AAPL　TSLA</span>
+      </div>
+    </div>`;
+}
+ 
+// 用 Yahoo Finance API 抓即時股票資料
+async function fetchStockData(ticker){
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=3mo`;
+  const quoteUrl = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${ticker}?modules=summaryDetail,defaultKeyStatistics,financialData,price`;
+ 
+  const [chartRes, quoteRes] = await Promise.all([
+    fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`),
+    fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(quoteUrl)}`)
+  ]);
+ 
+  const chartData = await chartRes.json();
+  const quoteData = await quoteRes.json();
+ 
+  const meta = chartData?.chart?.result?.[0]?.meta;
+  const summary = quoteData?.quoteSummary?.result;
+ 
+  if(!meta) throw new Error('找不到股票資料，請確認代號是否正確');
+ 
+  const price = meta.regularMarketPrice;
+  const prevClose = meta.previousClose || meta.chartPreviousClose;
+  const chg = prevClose ? +((price - prevClose) / prevClose * 100).toFixed(2) : 0;
+ 
+  // 從 summary 抓基本面
+  const sd = summary?.[0]?.summaryDetail || {};
+  const ks = summary?.[0]?.defaultKeyStatistics || {};
+  const fd = summary?.[0]?.financialData || {};
+  const pd = summary?.[0]?.price || {};
+ 
+  const closes = chartData?.chart?.result?.[0]?.indicators?.quote?.[0]?.close?.filter(Boolean) || [];
+  const volumes = chartData?.chart?.result?.[0]?.indicators?.quote?.[0]?.volume?.filter(Boolean) || [];
+ 
+  // 計算技術指標
+  let rsi = null, ma5 = null, ma20 = null, macd_cross = false, vol_ratio = null;
+ 
+  if(closes.length >= 20){
+    const last = closes.slice(-20);
+    ma5  = (closes.slice(-5).reduce((a,b)=>a+b,0)/5).toFixed(2);
+    ma20 = (last.reduce((a,b)=>a+b,0)/20).toFixed(2);
+ 
+    // RSI
+    const diffs = closes.slice(-15).map((v,i,a)=>i>0?v-a[i-1]:0).slice(1);
+    const gains = diffs.map(d=>d>0?d:0);
+    const losses = diffs.map(d=>d<0?-d:0);
+    const avgG = gains.reduce((a,b)=>a+b,0)/gains.length;
+    const avgL = losses.reduce((a,b)=>a+b,0)/losses.length;
+    rsi = avgL===0 ? 100 : +(100 - 100/(1+avgG/avgL)).toFixed(1);
+ 
+    // Volume ratio
+    const vols = volumes.slice(-6);
+    if(vols.length >= 6){
+      const todayVol = vols[vols.length-1];
+      const avg5 = vols.slice(0,-1).reduce((a,b)=>a+b,0)/5;
+      vol_ratio = avg5>0 ? +(todayVol/avg5).toFixed(2) : null;
+    }
+ 
+    // MACD (簡化)
+    const ema12 = closes.slice(-13).reduce((a,b,i)=>i===0?b:a*11/13+b*2/13, closes.slice(-13)[0]);
+    const ema26 = closes.slice(-27).reduce((a,b,i)=>i===0?b:a*25/27+b*2/27, closes.slice(-27)[0]);
+    const prevEma12 = closes.slice(-14,-1).reduce((a,b,i)=>i===0?b:a*11/13+b*2/13, closes.slice(-14,-1)[0]);
+    const prevEma26 = closes.slice(-28,-1).reduce((a,b,i)=>i===0?b:a*25/27+b*2/27, closes.slice(-28,-1)[0]);
+    macd_cross = (ema12-ema26) > (prevEma12-prevEma26);
+  }
+ 
+  const ma_align = [price>parseFloat(ma5), price>parseFloat(ma20)].filter(Boolean).length;
+  const recent_high = Math.max(...closes.slice(-20,-1));
+  const breakout = price > recent_high;
+ 
+  return {
+    name: pd.shortName || pd.longName || meta.symbol,
+    code: meta.symbol,
+    price: +price.toFixed(2),
+    chg,
+    currency: meta.currency || 'TWD',
+    exchange: meta.exchangeName || '',
+    rsi, ma5: +ma5, ma20: +ma20,
+    macd_cross, vol_ratio,
+    ma_align, breakout,
+    pe:   sd.trailingPE?.raw?.toFixed(1) || ks.forwardPE?.raw?.toFixed(1) || null,
+    pb:   ks.priceToBook?.raw?.toFixed(2) || null,
+    roe:  fd.returnOnEquity?.raw ? (fd.returnOnEquity.raw*100).toFixed(1) : null,
+    rev_growth: fd.revenueGrowth?.raw ? (fd.revenueGrowth.raw*100).toFixed(1) : null,
+    gross_margin: fd.grossMargins?.raw ? (fd.grossMargins.raw*100).toFixed(1) : null,
+    div_yield: sd.dividendYield?.raw ? (sd.dividendYield.raw*100).toFixed(2) : null,
+    market_cap: pd.marketCap?.fmt || null,
+    analyst_target: fd.targetMeanPrice?.raw?.toFixed(2) || null,
+    week52_high: sd.fiftyTwoWeekHigh?.raw?.toFixed(2) || null,
+    week52_low:  sd.fiftyTwoWeekLow?.raw?.toFixed(2)  || null,
+  };
+}
+ 
+// 呼叫 Claude AI 分析
+async function analyzeWithClaude(stock, market){
+  const isTW = market === 'tw';
+  const sym = isTW ? '' : '$';
+  const prompt = `你是一位專業的${isTW?'台股':'美股'}分析師，請根據以下即時資料對這檔股票做完整分析。
+ 
+股票：${stock.name}（${stock.code}）
+現價：${sym}${stock.price}　今日漲跌：${stock.chg>0?'+':''}${stock.chg}%
+MA5：${stock.ma5}　MA20：${stock.ma20}　均線多頭：${stock.ma_align}/2
+RSI（14日）：${stock.rsi}　MACD趨勢：${stock.macd_cross?'金叉偏多':'偏空或中性'}
+量比（今日/5日均量）：${stock.vol_ratio}x　突破近20日高點：${stock.breakout?'是':'否'}
+本益比：${stock.pe??'N/A'}　ROE：${stock.roe??'N/A'}%　${isTW?`殖利率：${stock.div_yield??'N/A'}%`:`毛利率：${stock.gross_margin??'N/A'}%`}
+營收成長：${stock.rev_growth??'N/A'}%　市值：${stock.market_cap??'N/A'}
+52週高點：${sym}${stock.week52_high}　52週低點：${sym}${stock.week52_low}
+${stock.analyst_target?`分析師平均目標價：${sym}${stock.analyst_target}`:''}
+ 
+請用以下格式回覆（繁體中文，語氣專業易懂）：
+ 
+【AI 評分】X.X / 10
+ 
+【技術面分析】
+（3點，引用實際數字，說明趨勢方向、動能強弱、是否適合進場）
+ 
+【基本面分析】
+（2-3點，說明估值、獲利品質、成長性）
+ 
+【進場參考區間】
+${sym}XXX ~ ${sym}XXX
+ 
+【主要風險】
+（2點）
+ 
+【操作建議】
+（1-2句，說明短中期策略）`;
+ 
+  const resp = await fetch(WORKER_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      messages: [{ role: 'user', content: prompt }]
+    })
+  });
+ 
+  if(!resp.ok){
+    const err = await resp.json();
+    throw new Error(err.error?.message || 'AI 分析失敗');
+  }
+ 
+  const data = await resp.json();
+  return data.content[0].text;
+}
+ 
+// 解析 Claude 回應並渲染卡片
+function parseAndRender(stock, aiText, market){
+  const isTW = market==='tw';
+  const sym = isTW?'':'$';
+  const chgCls = stock.chg>=0?'up':'dn';
+ 
+  // 從 AI 回應提取評分
+  const scoreMatch = aiText.match(/【AI 評分】\s*([\d.]+)/);
+  const score = scoreMatch ? parseFloat(scoreMatch[1]) : null;
+  const scoreColor = score>=8.5?'#c8ff00':score>=7?'#00e5ff':'#9a9ab0';
+ 
+  // 進場區間
+  const entryMatch = aiText.match(/【進場參考區間】\s*
+([^
+【]+)/);
+  const entry = entryMatch ? entryMatch[1].trim() : '—';
+ 
+  // 技術訊號
+  const sigHtml = [
+    ['均線多頭', stock.ma_align>=2],
+    ['MACD偏多', stock.macd_cross],
+    ['量能放大', stock.vol_ratio>=1.5],
+    ['突破近高', stock.breakout],
+    ['RSI健康', stock.rsi>=45&&stock.rsi<=75],
+  ].map(([l,on])=>`<span class="sig ${on?'on':'off'}" style="font-size:12px">${l}</span>`).join('');
+ 
+  // 52週位置
+  const w52pct = stock.week52_high && stock.week52_low
+    ? Math.round((stock.price-stock.week52_low)/(stock.week52_high-stock.week52_low)*100)
+    : null;
+ 
+  const statsHtml = isTW ? `
+    <div class="ai-stat"><div class="ai-stat-label">RSI</div><div class="ai-stat-val">${stock.rsi??'—'}</div></div>
+    <div class="ai-stat"><div class="ai-stat-label">本益比</div><div class="ai-stat-val">${stock.pe??'—'}</div></div>
+    <div class="ai-stat"><div class="ai-stat-label">ROE</div><div class="ai-stat-val pos">${stock.roe??'—'}%</div></div>
+    <div class="ai-stat"><div class="ai-stat-label">量比</div><div class="ai-stat-val">${stock.vol_ratio??'—'}x</div></div>
+    <div class="ai-stat"><div class="ai-stat-label">殖利率</div><div class="ai-stat-val">${stock.div_yield??'—'}%</div></div>
+    <div class="ai-stat"><div class="ai-stat-label">52週位置</div><div class="ai-stat-val">${w52pct??'—'}%</div></div>
+  ` : `
+    <div class="ai-stat"><div class="ai-stat-label">RSI</div><div class="ai-stat-val">${stock.rsi??'—'}</div></div>
+    <div class="ai-stat"><div class="ai-stat-label">本益比</div><div class="ai-stat-val">${stock.pe??'—'}</div></div>
+    <div class="ai-stat"><div class="ai-stat-label">毛利率</div><div class="ai-stat-val pos">${stock.gross_margin??'—'}%</div></div>
+    <div class="ai-stat"><div class="ai-stat-label">量比</div><div class="ai-stat-val">${stock.vol_ratio??'—'}x</div></div>
+    <div class="ai-stat"><div class="ai-stat-label">目標價</div><div class="ai-stat-val">$${stock.analyst_target??'—'}</div></div>
+    <div class="ai-stat"><div class="ai-stat-label">52週位置</div><div class="ai-stat-val">${w52pct??'—'}%</div></div>
+  `;
+ 
+  // 把 AI 文字裡的區塊標題轉成漂亮格式
+  const formatted = aiText
+    .replace(/【AI 評分】[\s\S]*?(?=【|$)/, '')
+    .replace(/【進場參考區間】[\s\S]*?(?=【|$)/, '')
+    .replace(/【(.+?)】/g, '<div class="ai-section"><div class="ai-section-title">// $1</div>')
+    .replace(/
+ 
+/g, '</div>
+')
+    + '</div>';
+ 
+  return `
+  <div class="ai-result-card">
+    <div class="ai-result-header">
+      <div class="ai-stock-info">
+        <div class="ai-stock-name">${stock.name}</div>
+        <div class="ai-stock-code">${stock.code} · ${stock.exchange}</div>
+      </div>
+      <div class="ai-price-wrap">
+        <div class="ai-price">${sym}${stock.price.toLocaleString()}</div>
+        <span class="ai-chg ${chgCls}">${stock.chg>=0?'+':''}${stock.chg}%</span>
+      </div>
+    </div>
+ 
+    ${score ? `
+    <div class="ai-score-row">
+      <div class="ai-score-label">AI 綜合評分</div>
+      <div class="ai-score-val" style="color:${scoreColor}">${score.toFixed(1)}<span style="font-size:14px;color:var(--muted)"> / 10</span></div>
+    </div>` : ''}
+ 
+    <div class="ai-quick-stats">${statsHtml}</div>
+    <div class="ai-signals" style="margin-bottom:14px">${sigHtml}</div>
+ 
+    ${entry!=='—'?`<div class="ai-entry">📍 進場參考：${entry}</div>`:''}
+ 
+    <div class="ai-analysis-text">${formatted}</div>
+  </div>`;
+}
+ 
+async function doAnalyze(){
+  if(isAnalyzing) return;
+  const input = document.getElementById('search-input');
+  let ticker = input.value.trim().toUpperCase();
+  if(!ticker) return;
+ 
+  // 台股自動補 .TW
+  if(sfMarket==='tw' && /^\d{4,5}$/.test(ticker)) ticker += '.TW';
+ 
+  isAnalyzing = true;
+  const btn = document.getElementById('analyze-btn');
+  btn.disabled = true;
+  document.getElementById('analyze-btn-text').textContent = '分析中...';
+ 
+  document.getElementById('search-results').innerHTML = `
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <div class="spinner-text">// 抓取即時資料中...</div>
+    </div>`;
+ 
+  try {
+    // Step 1: 抓股票資料
+    const stock = await fetchStockData(ticker);
+ 
+    document.getElementById('search-results').innerHTML = `
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <div class="spinner-text">// Claude AI 分析中...</div>
+      </div>`;
+ 
+    // Step 2: AI 分析
+    const aiText = await analyzeWithClaude(stock, sfMarket);
+ 
+    // Step 3: 渲染結果
+    document.getElementById('search-results').innerHTML = parseAndRender(stock, aiText, sfMarket);
+ 
+  } catch(e) {
+    document.getElementById('search-results').innerHTML = `
+      <div class="error-card">
+        <p>❌ ${e.message || '查詢失敗，請稍後再試'}</p>
+        <p style="margin-top:8px;font-size:12px;color:var(--muted)">
+          請確認代號正確<br>台股：直接輸入數字代號（如 2330）<br>美股：輸入英文代號（如 NVDA）
+        </p>
+      </div>`;
+  } finally {
+    isAnalyzing = false;
+    btn.disabled = false;
+    document.getElementById('analyze-btn-text').textContent = '🔍 查詢並分析';
+  }
+}
+ 
+ 
 /* ════════════════════════════════════
    PAGE NAV
 ════════════════════════════════════ */
@@ -882,7 +1356,9 @@ function switchPage(page, btn){
   btn.classList.add('active');
   document.getElementById('page-today').style.display   = page==='today'  ?'block':'none';
   document.getElementById('page-history').style.display = page==='history'?'block':'none';
+  document.getElementById('page-search').style.display  = page==='search' ?'block':'none';
   if(page==='history') renderHistory();
+  if(page==='search') setTimeout(()=>document.getElementById('search-input').focus(), 200);
   window.scrollTo(0,0);
 }
  
